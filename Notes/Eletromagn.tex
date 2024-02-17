@@ -1,0 +1,113 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}	% Para caracteres en español
+\usepackage{amsmath,amsthm,amsfonts,amssymb,amscd}
+\usepackage{multirow,booktabs}
+\usepackage{array}
+\usepackage[table]{xcolor}
+\usepackage{fullpage}
+\usepackage{ragged2e}
+\usepackage{lastpage}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{mathrsfs}
+\usepackage{wrapfig}
+\usepackage{setspace}
+\usepackage{calc}
+\usepackage{multicol}
+\usepackage{cancel}
+\usepackage[retainorgcmds]{IEEEtrantools}
+\usepackage[margin=3cm]{geometry}
+\usepackage{amsmath}
+\newlength{\tabcont}
+\setlength{\parindent}{0.0in}
+\setlength{\parskip}{0.05in}
+\usepackage{empheq}
+\usepackage{framed}
+\usepackage[most]{tcolorbox}
+\usepackage{xcolor}
+\colorlet{shadecolor}{orange!15}
+\parindent 0in
+\parskip 12pt
+\geometry{margin=1in, headsep=0.25in}
+\theoremstyle{definition}
+\newtheorem{defn}{Definition}
+\newtheorem{reg}{Rule}
+\newtheorem{exer}{Exercise}
+\newtheorem{note}{Nota}
+\begin{document}
+\setcounter{section}{0}
+\title{Chapter 1 Review Notes}
+
+\thispagestyle{empty}
+
+\begin{center}
+{\LARGE \bf Notas de Eletromagnetismo}\\
+{\large André Danin}\\
+IFPA 2024
+\end{center}
+\section{Eletroestática}
+\subsection{Introdução}
+O problema fundamental da teoria eletromagnética é o seguinte: temos várias cargas, q1, q2, q3, qn, qual a força que elas exercem sobre uma carga Q qualquer. Com isso adentramos no principio da superposição, aonde a interação entre duas cargas não é afetada pelas outras, assim sendo podemos calcular a força F1 de q1 em Q separadamente, e depois ir somando com as outras: 
+\begin{equation}
+F=F1+F2+F3+...Fn    
+\end{equation}
+\begin{note}
+\textbf{Porque não escrever diretamente uma função geral para a força em Q devido a q? Porque tal força não depende somente do raio entre q e Q, e sim também da velocidade e aceleração de q, no capitulo 10 do livro Griffiths foi desenvolvida tal formula, entretanto antes de partir para a Eletrodinâmica, primeiro será estudado a Eletroestática, um caso especial aonde todas as cargas fontes (q) são estacionárias. (A carga de prova Q não precisa ser estacionária}
+\end{note}
+\subsection{Lei de Coulomb}
+Uma pergunta clássica da eletroestática é: Qual a força na carga de prova Q produzida por uma única carga q cuja distância entre eles é definido por $\vec{r}$, o vetor de separação entre r' (localização do ponto de q) até r (localização do ponto de Q). A resposta para isso é através da Lei de Coulomb (obtida via experimento).
+\begin{note}
+    \textbf{A força na carga também está relacionado com o campo elétrico, que nada mais é que um campo vetorial formado pela força elétrica por unidade de carga}
+\end{note}
+\begin{shaded}
+\textbf{Lei de Coulomb} \newline
+\begin{equation}
+F=\frac{1}{4\pi\varepsilon_\mathrm{0}}\frac{qQ}{r^2}\hat{r}
+\end{equation}
+Onde:
+\begin{equation*}
+\begin{split}
+\varepsilon_\mathrm{0} =8,85*10^{-12}\frac{C^2}{Nm^2} = \text{Permissividade no vácuo} \\
+r = \text{Modulo de $\vec{r}$} \\
+\hat{r} = \text{Direção do vetor $\vec{r}$}\\
+\end{split}
+\end{equation*}
+\end{shaded}
+\newpage
+\subsection{Campo Elétrico}
+Retomando a equação (1) e a (2), observa-se que os únicos valores que vão variar são somente o \textit{q}, o \textit{r} e o $\hat{r}$, logo podemos escrever como um somatório:
+\begin{equation}
+    F=QE
+\end{equation}
+\begin{equation}
+     E(r)=\frac{1}{4\pi\varepsilon_\mathrm{0}}\sum_{i=1}^{n}\frac{q_{i}}{r_{i}^{2}}\hat{r}
+\end{equation}
+Aonde E é o próprio campo elétrico campo elétrico, a definição do que é o campo elétrico ainda não está muito clara, mas é como se preenchesse o espaço ao redor com cargas elétricas.
+
+
+\subsubsection{Campo Elétrico do Dipolo}
+A seguir segue a demonstração do campo elétrico num dipolo, constituído por uma carga positiva e uma negativa alinhadas, no qual quer-se achar o campo num ponto \textit{p} alinhado com as cargas:
+
+\begin{align*}
+    &E_d=\frac{1}{4 \pi \varepsilon_0}\left(\frac{+q}{(r-d / 2)^2}-\frac{q}{(r+d / 2)^2}\right) \vec{k} \\
+    &E_d=\frac{1}{4 \pi \varepsilon_0}\left(\frac{q}{r^2\left(1-\frac{d}{2 r}\right)^2}-\frac{q}{r^2\left(1+\frac{d}{2 r}\right)^2}\right) \vec{k}  \\
+    &E_d=\frac{q}{4 \pi \varepsilon_0 r^2}\left(\frac{1}{\left(1-\frac{d}{2 n}\right)^2}-\frac{1}{\left(1+\frac{d}{2 r}\right)^2}\right) \vec{k} \\
+    &\therefore   \sqrt{(1 \pm \varepsilon)^n}=1 \pm n \varepsilon \\
+    &E_d=\frac{1}{4 \pi \varepsilon_0} \frac{q}{r^2}\left(\frac{1}{1-\frac{d}{r}}-\frac{1}{1+\frac{d}{r}}\right) \vec{k} \ \\
+    &E_d=\frac{1}{4 \pi \varepsilon} \frac{q}{r^2} \cdot \frac{1+\frac{d}{r}-1+\frac{d}{r}}{1-\frac{d^2}{r^2}} \vec{k} \\
+    &E_d=\frac{1}{4 \pi \varepsilon_0} \frac{q}{r^2} \cdot \frac{\frac{2 d}{r}}{1-\frac{d^2}{r^2}} \vec{k}  \\
+    &E_d=\frac{1}{4 \pi \varepsilon_0} \frac{q}{r^2} \cdot \frac{2 d}{r} \cdot \bar{k}  \\
+    &\bar{E}_d=\frac{1}{2 \pi \varepsilon_0} \frac{q d}{r^3} \vec{k} 
+\end{align*} 
+\begin{equation}
+    \bar{E}_d=\frac{1}{2 \pi \varepsilon_0} \frac{q d}{r^3} \vec{k}
+\end{equation}
+\begin{text}
+    Abaixo o momento dipolo e a equação do campo elétrico em virtude do momento:
+\end{text}
+\begin{eqnarray}
+    \vec{P}=q d \vec{k}  \\
+    \vec{E}_d=\frac{1}{2 \pi \varepsilon_0} \frac{\vec{P}}{r^3} 
+\end{eqnarray}
+    
+\end{document}
